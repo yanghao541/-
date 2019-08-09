@@ -17,7 +17,7 @@ export default {
 
 <style>
 .yh{
-background:rgba(0,0,0,.9);
+background:rgba(0,0,0,.1);
     bottom: 0;
     left: 0;
     overflow: hidden;

@@ -205,7 +205,7 @@ export default {
   },
   async created() {
     let data = await home_api();
-    console.log(data);
+    // console.log(data);
   },
   data() {
     return {

@@ -1,12 +1,8 @@
 <template>
   <div class="tou1">
     <div class="top">
-      <div class="a1">
-        <v-touch tag="div" @tap="to()">返回</v-touch>
-        <input type="text" class="a2" />
-        <a>更多</a>
-      </div>
-    </div>  
+      <Header />
+    </div>
     <!-- 身 -->
     <div class="center" ref="tou">
       <!-- better-scroll 添加标记 -->
@@ -14,13 +10,9 @@
         <div class="a10">
           <img
             class="a7"
-            src="https:////ossweb-img.qq.com/upload/adw/image/20190808/1b896b23e80acbbdb25e32424b305666.jpeg"/>
-
+            src="https://ossweb-img.qq.com/upload/adw/image/20190808/1b896b23e80acbbdb25e32424b305666.jpeg"/>
           <ul class="a8">
             <li>{{cityname}}</li>
-            <!-- <li>东南亚</li>
-            <li>海岛精选</li>
-            <li>欧美澳非</li> -->
           </ul>
           <ul class="a9">
             <li v-for="(item,index) in List" :key="index">{{item.DestinationCityName}}</li>
@@ -30,9 +22,14 @@
 
             <div class="a5">
               <ul>
-                <li v-for="(item,index) in List" :key="index">
+                <v-touch
+                  tag="li"
+                  v-for="(item,index) in List"
+                  :key="index"
+                  @tap="details(item.LineId)"
+                >
                   <img class="a6" :src="item.ImagePath" />
-                </li>
+                </v-touch>
               </ul>
             </div>
           </div>
@@ -48,16 +45,19 @@
               <li>巴厘岛</li>
               <li>缅甸</li>
             </ul>
-
-            <div v-for="(item,index) in List" :key="index">
+            <v-touch
+              v-for="(item,index) in List"
+              :key="index"
+              tag="div"
+              @tap="details(item.LineId)"
+            >
               <img :src="item.ImagePath" class="z1" />
-
               <div class="z3">
                 <a class="z4">{{item.MainTitle}}</a>
                 <br />
                 <span class="z2">{{item.SubTitle}}</span>
               </div>
-            </div>
+            </v-touch>
           </div>
         </div>
       </bigbox>
@@ -69,14 +69,14 @@
 
 <script>
 import { move_api, move_api2 } from "api/move";
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 
 export default {
   name: "yh1",
-  computed:{
+  computed: {
     ...mapState({
-      cityname:state=>state.city.cityname,
-      cityid:state=>state.city.cityid,
+      cityname: state => state.city.cityname,
+      cityid: state => state.city.cityid
     })
   },
   async created() {
@@ -84,38 +84,48 @@ export default {
     if (!sessionStorage.getItem("haha")) {
       let data = await move_api(this.cityid);
       this.List = data;
+      console.log(data)
       sessionStorage.setItem("haha", JSON.stringify(data));
+    }
+  },
+  async activated() {
+    // console.log(this.List.)
+    if (this.a != this.cityid) {
+      let data = await move_api(this.cityid);
+      this.List = data;
+      sessionStorage.setItem("haha", JSON.stringify(data));
+      this.a = this.cityid;
     }
   },
   data() {
     return {
       //  内存有就获取
-      List: JSON.parse(sessionStorage.getItem("haha")) || []
+      List: JSON.parse(sessionStorage.getItem("haha")) || [],
+      a: -1,
     };
   },
   methods: {
-    to() {
-      this.$router.push("/home");
-    },
     shang() {
-      this.$refs.tou.scrollTo(0,0,1500);
+      this.$refs.tou.scrollTo(0, 0, 1500);
+    },
+    //  点击跳详情页
+    details(LineId) {
+      // 编程导航 路由跳转至 shopp params带id
+      this.$router.push({ name: "shopp", params: { LineId } });
     }
   },
   mounted() {
-    
     // 让这个父组件better-scroll 执行 下拉刷新这个方法
     //  当下拉是执行里面的函数   这个例子 函数只是执行重新赋值
     this.$refs.shuaxin.handDown(async () => {
-      let n = parseInt(Math.random()*8);
+      let n = parseInt(Math.random() * 8);
       let a = [321, 70, 394, 91, 199, 324, 322, 248];
       let data2 = await move_api2(a[n]);
       this.List = data2;
       sessionStorage.setItem("haha", JSON.stringify(data2));
       // 数据刷新完毕 告知系统 取消类似防抖事件
       this.$refs.shuaxin.gaosu();
-
     });
-
   }
 };
 </script>
@@ -138,21 +148,6 @@ export default {
   top: 0;
   display: flex;
   justify-content: center;
-}
-.a1 {
-  width: 3.47rem;
-  height: 0.44rem;
-  padding: 0.07rem 0;
-  display: flex;
-  justify-content: space-around;
-}
-.a2 {
-  border-radius: 0.53333rem;
-  height: 0.3rem;
-  width: 2.52rem;
-  background: #ccc;
-  outline: medium;
-  border: none;
 }
 
 /* 底部 */

@@ -4,7 +4,7 @@ export default{
     component:()=>import("views/one"),
     name:"one",
     meta: {
-        title:"海外游",
+        title:"出境",
        tabBar:false,
        auth:false
     },

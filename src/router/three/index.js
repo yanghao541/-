@@ -4,7 +4,7 @@ export default{
     component:()=>import("views/three"),
     name:"three",
     meta: {
-        title:"更多",
+        title:"签字游",
        tabBar:false,
        auth:false
     },

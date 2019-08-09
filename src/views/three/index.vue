@@ -1,6 +1,6 @@
 <template>
   <div class="t3">
-    <Header/>
+    <Header />
     <bigbox ref="shuaxin">
       <!-- 轮播图 -->
       <div class="bot">
@@ -8,13 +8,9 @@
           <div class="swiper-container" ref="ban">
             <div class="swiper-wrapper">
               <div class="swiper-slide" v-for="(item,index) in timg" :key="index">
-                <img :src="item.imgage"/>
+                <img :src="item.imgage" />
               </div>
             </div>
-          </div>
-          <!-- 搜索框 -->
-          <div class="search">
-            <input type="text" value="搜索想要的内容" />
           </div>
 
           <!-- 选项卡 -->
@@ -66,11 +62,12 @@
 import { move_api } from "api/move";
 import Swiper from "swiper";
 import "swiper/dist/css/swiper.css";
-import path1 from 'common/img/1.jpg'
-import path2 from 'common/img/2.jpg'
-import path3 from 'common/img/3.jpg'
-import path4 from 'common/img/4.jpg'
-import path5 from 'common/img/5.jpg'
+import path1 from "common/img/1.jpg";
+import path2 from "common/img/2.jpg";
+import path3 from "common/img/3.jpg";
+import path4 from "common/img/4.jpg";
+import path5 from "common/img/5.jpg";
+
 export default {
   name: "three",
   async created() {
@@ -82,12 +79,12 @@ export default {
   },
   data() {
     return {
-      timg:[
-        {imgage:path1},
-        {imgage:path2},
-        {imgage:path3},
-        {imgage:path4},
-        {imgage:path5}
+      timg: [
+        { imgage: path1 },
+        { imgage: path2 },
+        { imgage: path3 },
+        { imgage: path4 },
+        { imgage: path5 }
       ],
       List: JSON.parse(sessionStorage.getItem("hahaha")) || []
     };
@@ -102,10 +99,10 @@ export default {
       this.$refs.shuaxin.gaosu();
     });
     var mySwiper = new Swiper(this.$refs.ban, {
-      loop: true, 
+      loop: true,
       autoplay: {
-         delay: 2000,
-        disableOnInteraction: false,
+        delay: 2000,
+        disableOnInteraction: false
       }
     });
   }
@@ -135,30 +132,14 @@ export default {
   height: 1.2rem;
 }
 .swiper-slide > img {
-  width:100%;
+  width: 100%;
   height: 1.2rem;
 }
 
-/* 搜索框 */
-.search {
-  background: white;
-  width: 100%;
-  height: 0.52rem;
-  padding: 0.1rem 0.15rem;
-}
-.search > input {
-  width: 100%;
-  height: 0.32rem;
-  background: #f4f4f4;
-  color: #999;
-  border-radius: 0.53333rem;
-  border: none;
-  outline: medium;
-}
 
 /* 选项 */
 .select > ul {
-   background: white;
+  background: white;
   height: 0.44rem;
 }
 .select > ul > li {
@@ -180,9 +161,11 @@ export default {
   height: 0.96rem;
   width: 1.03rem;
 }
-.a100{  background: white;}
+.a100 {
+  background: white;
+}
 .all {
-   background: white;
+  background: white;
   height: 0.56rem;
   text-align: center;
   font-size: 0.14rem;
@@ -229,7 +212,7 @@ export default {
   white-space: nowrap;
 }
 .a1 {
-   background: white;
+  background: white;
   height: 0.36rem;
   margin: 0 0.18rem;
   font-size: 0.16rem;
@@ -239,7 +222,7 @@ export default {
 }
 
 .list {
-   background: white;
+  background: white;
   height: 1.07rem;
   padding: 0.1rem 0.18rem;
 }

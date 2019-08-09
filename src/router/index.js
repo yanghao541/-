@@ -3,6 +3,7 @@ import VueRouter from "vue-router"
 import one from "./one"
 import two from "./two"
 import three from "./three"
+import shopp from "./shopp"
 import citylist from "./citylist";
 import home from "./home";
 import planeTicket from "./planeTicket";
@@ -21,7 +22,8 @@ export default new VueRouter ({
         three,
         citylist,
         planeTicket,
-        trainTicket
+        trainTicket,
+        shopp,
     ],
      
 })

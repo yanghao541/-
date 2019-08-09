@@ -19,7 +19,7 @@ export default {
 
         })
     },
-     methods:{
+    methods:{
         handDown(callback){
             // 这个方法使用 下拉请求事件  
             //  由于是封装 数据不能写死 所以使用回调
@@ -35,7 +35,7 @@ export default {
             this.scroll.refresh();
         },
 
-    }
+ }
 }
 </script>
 

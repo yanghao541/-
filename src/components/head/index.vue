@@ -1,7 +1,7 @@
 <template>
      <div class="headr">
       <v-touch tag="div" @tap="to()">返回</v-touch>
-      <div>海外游玩</div>
+      <div>{{headertitle}}</div>
       <div>更多</div>
     </div>
 </template>
@@ -9,10 +9,20 @@
 <script>
 export default {
   name:"Header",
+  data(){
+    return{
+      headertitle:""
+    }
+  },
+  mounted(){
+    this.headertitle=this.$router.history.current.meta.title
+  },
   methods: {
     to() {
       this.$router.back();
-    }
+
+    },
+
   }
 }
 </script>
