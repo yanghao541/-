@@ -82,7 +82,7 @@ export default {
   async created() {
     // 如果内存没有就获取 别且添加进去
     if (!sessionStorage.getItem("haha")) {
-      let data = await move_api(cityid);
+      let data = await move_api(this.cityid);
       this.List = data;
       sessionStorage.setItem("haha", JSON.stringify(data));
     }
@@ -102,6 +102,7 @@ export default {
     }
   },
   mounted() {
+    
     // 让这个父组件better-scroll 执行 下拉刷新这个方法
     //  当下拉是执行里面的函数   这个例子 函数只是执行重新赋值
     this.$refs.shuaxin.handDown(async () => {
@@ -112,6 +113,7 @@ export default {
       sessionStorage.setItem("haha", JSON.stringify(data2));
       // 数据刷新完毕 告知系统 取消类似防抖事件
       this.$refs.shuaxin.gaosu();
+
     });
 
   }
@@ -125,6 +127,7 @@ export default {
 /* 头 */
 .tou1 {
   height: 100%;
+  background: white;
 }
 .top {
   background: white;

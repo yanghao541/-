@@ -5,7 +5,6 @@ import two from "./two"
 import three from "./three"
 import citylist from "./citylist";
 import home from "./home";
-import cityBox from "./cityBox";
 import planeTicket from "./planeTicket";
 import trainTicket from "./trainTicket";
 Vue.use(VueRouter)
@@ -21,7 +20,6 @@ export default new VueRouter ({
         two,
         three,
         citylist,
-        cityBox,
         planeTicket,
         trainTicket
     ],

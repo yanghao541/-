@@ -1,6 +1,6 @@
 <template>
   <div class="t3">
-    <Heade />
+    <Header/>
     <bigbox ref="shuaxin">
       <!-- 轮播图 -->
       <div class="bot">
@@ -44,7 +44,7 @@
             </ul>
           </div>
 
-          <div>
+          <div class="a100">
             <div class="a1">热卖产品</div>
             <!-- 渲染 -->
             <div class="list" v-for="(item,index) in List" :key="index">
@@ -141,6 +141,7 @@ export default {
 
 /* 搜索框 */
 .search {
+  background: white;
   width: 100%;
   height: 0.52rem;
   padding: 0.1rem 0.15rem;
@@ -157,6 +158,7 @@ export default {
 
 /* 选项 */
 .select > ul {
+   background: white;
   height: 0.44rem;
 }
 .select > ul > li {
@@ -178,8 +180,9 @@ export default {
   height: 0.96rem;
   width: 1.03rem;
 }
-
+.a100{  background: white;}
 .all {
+   background: white;
   height: 0.56rem;
   text-align: center;
   font-size: 0.14rem;
@@ -226,6 +229,7 @@ export default {
   white-space: nowrap;
 }
 .a1 {
+   background: white;
   height: 0.36rem;
   margin: 0 0.18rem;
   font-size: 0.16rem;
@@ -235,6 +239,7 @@ export default {
 }
 
 .list {
+   background: white;
   height: 1.07rem;
   padding: 0.1rem 0.18rem;
 }

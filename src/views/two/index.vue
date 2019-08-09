@@ -66,7 +66,7 @@ export default {
   name: "two",
   methods: {
     to() {
-      this.$router.back();
+      this.$router.push("./home");
     }
   }
 };
@@ -91,6 +91,7 @@ export default {
 /* 搜索框 */
 
 .bot1 { 
+  background: white;
   padding-top: .43rem;
   position: fixed;
    height: 100%; 
