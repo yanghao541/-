@@ -3,11 +3,14 @@ import VueRouter from "vue-router"
 import one from "./one"
 import two from "./two"
 import three from "./three"
-import home from "./home";
 import citylist from "./citylist";
+import home from "./home";
+import cityBox from "./cityBox";
+import planeTicket from "./planeTicket";
+import trainTicket from "./trainTicket";
 Vue.use(VueRouter)
 
-export default new VueRouter({
+export default new VueRouter ({
     routes:[
         {
             path:"/",
@@ -17,7 +20,10 @@ export default new VueRouter({
         one,
         two,
         three,
-        citylist
-    ]
+        citylist,
+        cityBox,
+        planeTicket,
+        trainTicket
+    ],
+     
 })
-

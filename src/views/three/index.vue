@@ -1,6 +1,6 @@
 <template>
   <div class="t3">
-    <Header />
+    <Heade />
     <bigbox ref="shuaxin">
       <!-- 轮播图 -->
       <div class="bot">

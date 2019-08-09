@@ -10,17 +10,20 @@ address, caption, cite, code, dfn, th, var { font-style:normal; font-weight:norm
 
 ul, ol ,li{ list-style:none; }
 
-body { color:#333; font-size:14px; background:#fff;}
+body { color:#333; font:12px arial,sans-serif; background:#eee;}
 
-a{ color:#666; text-decoration:none;}
+a { color:#666; text-decoration:none; }
 /*清除浮动*/
 .clear{clear:both}
-*{box-sizing:border-box;}
+*{box-sizing:border-box}
 body,html{
     height: 100%;
     overflow: hidden;
 }
-html{font-size:26.67vw;}
+html{
+    font-size: 26.67vw
+}
+
 
 
 
