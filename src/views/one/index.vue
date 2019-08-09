@@ -76,21 +76,34 @@ export default {
   computed:{
     ...mapState({
       cityname:state=>state.city.cityname,
+      //  公共数据的id带进来 当城市列表界面点击一个城市时
+      // 公共数据的 id 和 name 会发生变化 
+      // name变化呈现在页面上  id带入请求接口中
+      // 随呈现在页面的name不同 呈现不同的数据
       cityid:state=>state.city.cityid,
     })
   },
   async created() {
     // 如果内存没有就获取 别且添加进去
     if (!sessionStorage.getItem("haha")) {
-      let data = await move_api(cityid);
+      let data = await move_api(this.cityid);
       this.List = data;
       sessionStorage.setItem("haha", JSON.stringify(data));
     }
   },
+  async activated(){
+       if (this.a!=this.cityid) {
+      let data = await move_api(this.cityid);
+      this.List = data;
+      sessionStorage.setItem("haha", JSON.stringify(data));
+        this.a=this.cityid
+       }
+  },
   data() {
     return {
       //  内存有就获取
-      List: JSON.parse(sessionStorage.getItem("haha")) || []
+      List: JSON.parse(sessionStorage.getItem("haha")) || [],
+      a:-1,
     };
   },
   methods: {

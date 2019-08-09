@@ -4,8 +4,8 @@ import {move_api3} from "api/move.js"
 const state={
     cityhot:[],
     citylist:[],
-    cityname:"北京",
-    cityId:10
+    cityname:sessionStorage.getItem("cityname")||"北京",
+    cityId:sessionStorage.getItem("cityname")||10,
 }
 // 把数据data传入vue页在通过vue方法 执行mutations
 const actions={
@@ -20,6 +20,9 @@ const mutations={
     clicklist(state,params){
     state.cityname=params.name;
     state.cityId=params.id;
+    // 改变数据是将数据存起来
+    sessionStorage.setItem("cityname",params.name)
+    sessionStorage.setItem("cityid",params.id)
     },
 
 
